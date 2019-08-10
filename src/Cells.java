@@ -5,7 +5,7 @@ public class Cells {
     int yAxis;
     int size = 35;
 
-    public Cells(int x, int y) {
+    public Cells(int x, int y, int size) {
         xAxis = x;
         yAxis = y;
     }

@@ -19,14 +19,23 @@ public class Main extends JFrame {
             // Cells cell = new Cells(10, 10);
             // cell.draw(g);
 
-            // Grids grid = new Grids(1, 1);
-            // grid.drawGrid(g);
+            /**
+             * Grids(int x-axis, int y-axis, int cellsize)
+             */
+            Grids grid = new Grids(20, 20, 35);
+            grid.drawGrid(g);
             
-            for(int i = 10; i < 710; i+=35) {
-                for(int j = 10; j < 710; j+=35) {
-                    extracted(g, i, j);            
-                }
-            }
+            // for(int i = 10; i < 710; i+=35) {
+            //     for(int j = 10; j < 710; j+=35) {
+            //         extracted(g, i, j);            
+            //     }
+            // }
+            // private void extracted(Graphics g, int i, int j) {
+            //     g.setColor(Color.WHITE);
+            //     g.fillRect(i, j, 35, 35);
+            //     g.setColor(Color.BLACK);
+            //     g.drawRect(i, j, 35, 35);
+            // }
 
             if(getMousePosition() != null){
                 g.setColor(Color.RED);
@@ -35,13 +44,6 @@ public class Main extends JFrame {
             
         }
 
-
-        private void extracted(Graphics g, int i, int j) {
-            g.setColor(Color.WHITE);
-            g.fillRect(i, j, 35, 35);
-            g.setColor(Color.BLACK);
-            g.drawRect(i, j, 35, 35);
-        }
     }
 
 

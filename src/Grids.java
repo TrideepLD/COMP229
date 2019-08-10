@@ -2,26 +2,32 @@ import java.awt.*;
 
 public class Grids {
 
-    int xAxis;
-    int yAxis;
-    int size = 35;
+    int gridSizeX;
+    int gridSizeY;
+    int cellSize;
+    private Cells[][] grid;
 
-    Cells[][] grid = new Cells [xAxis][yAxis];
+    // public Grids(int x, int y) {
+    //     grid = new Cells[x][y];
+    // }
 
-    public Grids(int x, int y) {
-        grid = new Cells[x][y];
-    }
+    /**
+     * So basically what happens here is that the function below is a way to give the array some value, cause otherwise the array is null.
+     */
+    public Grids(int gridSizeX, int gridSizeY, int cellSize) {
+        grid = new Cells[gridSizeX][gridSizeY];
 
-    public Grids(int size) {
-        grid = new Cells[size][size];
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                grid[i][j] = new Cells(10 + cellSize*i, 10 + cellSize*j, cellSize);
+            }
+        }
     }
 
     public void drawGrid(Graphics g) {
-        for (int i = 10; i < grid.length; i+=35) {
-            for (int j = 10; j < grid[i].length; j+=35) {
-                
-                g.setColor(Color.BLACK);
-                g.drawRect(i, j, 35, 35);
+
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
                 grid[i][j].draw(g);    
             }
         }
